@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lesson 1 Exercises - React Basics, JSX</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <!-- 1️⃣ React -->
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+
+    <!-- 2️⃣ ReactDOM -->
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src=https://unpkg.com/supersimpledev/dayjs.js></script>
+    <!-- 3️⃣ Babel -->
+     
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <!-- 4️⃣ JSX code MUST be last -->
+    <script type="text/babel">
+      const dayjs = window.dayjs;
+      console.log(dayjs().format('MMMM D'));
+      const today = dayjs().format('MMMM D');
+      const curTime = dayjs().format('HH:mm:ss');
+      const name = 'Simon';
+      const productCost = 10 + 2 * 8;
+      console.log(productCost);
+      const shippingCost = 5;
+
+      const app = (
+        <div>
+          <button>Good job!</button>
+          <p>My name is {name}</p>
+
+          <div
+            style={{
+              border: '1px solid gray',
+              padding: '10px',
+              width: '150px',
+            }}
+          >
+            <p>
+              <strong>Cotton socks</strong>
+            </p>
+            <p>Price: $10</p>
+            <button>Add to Cart</button>
+          </div>
+          <p>Product cost: ${productCost}</p>
+          <p>Shipping cost: ${shippingCost}</p>
+          <p>Total cost: ${shippingCost + productCost}</p>
+          <div
+            style={{
+              marginTop: '20px',
+              height: '100px',
+              width: '200px',
+    
+            }}
+          >
+            <button>Place your order</button>
+          </div>
+          <div style={{ 
+            marginTop: '10px',
+
+           }}>
+            <p>Today is {today}</p>
+            <p>Current time is {curTime}</p>
+          </div>
+          
+        </div>
+      );
+
+      const container = document.querySelector('.js-container');
+      const root = ReactDOM.createRoot(container).render(app);
+    </script>
+  </body>
+</html>

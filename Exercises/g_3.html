@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controlled input</title>
+    <style>
+        body{
+            margin: 0; 
+
+        }
+        .flex-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(222, 222, 222);
+            gap: 10px;
+
+
+        }
+        .styled-button {
+            background-color: rgb(25, 135, 84);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="js-container"></div>
+     <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+        function App() {
+            const[count, setCount] = React.useState(0);;
+            const buttonRef = React.useRef();
+            return (
+                <div className="flex-container">
+                    <button
+                    ref={buttonRef}
+                    className="styled-button"
+                    onClick={() => setCount(count + 1)}
+                    
+                    >
+                    Clicked {count} {count == 1 ?  'time' : 'times'}
+
+                    </button>
+                    <button 
+                    className="styled-button"
+                    onClick = {() => setCount(0)}
+                    >
+                    Reset
+                    </button>
+                    <button
+                    className="styled-button"
+                    onClick = {() => {
+                        setInterval(() => {
+                            buttonRef.current.click();
+                            a
+                        }, 1000);
+                    }}>
+                    Auto Click
+                    </button>
+                </div>
+
+            );
+        }
+        const container = document.querySelector('.js-container');
+        ReactDOM.createRoot(container).render(<App />);
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce app</title>
+</head>
+<body>
+    <div class="js-container"></div>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+       function ProductDetails(props) {
+        const {name, price, discountPrice, imageSrc} = props;
+        return (
+            <div>
+                
+                <div>
+                    {imageSrc.map((img, index) => (
+                    <img
+                        key={index}
+                        src={img}
+                        alt={name}
+                        style={{ width: "100px", marginRight: "10px" }}
+                    />
+                    ))}
+                </div>
+
+                <p>{name}</p>
+                <p>
+                  {discountPrice ? (
+                    <del>Price: {price} </del>
+                  ): (
+                    <>Price: {price} </>
+                  )
+                }
+
+                </p>
+                {discountPrice && (
+                    <p>Discount Price: {discountPrice} </p>
+                )}
+                <button> Add to Cart </button>
+            </div>
+        );
+       }
+       function App() {
+        return (
+            <>
+                <ProductDetails 
+                    imageSrc={[
+                    "../images/cotton-socks.jfif"
+                    ]}
+
+                    name="Cotton socks" 
+                    price="$10.90" 
+                    discountPrice="$5.45"
+                />
+
+                <ProductDetails 
+                imageSrc={[
+                    "../images/tennis-images.jfif"
+                ]}
+
+                name="Tennis balls" 
+                price="$7.90"
+                />
+
+                <ProductDetails 
+                imageSrc={[
+                    "../images/plain-t-shirt.jfif",
+                    "../images/plain-t-shirt-black.jfif",
+
+                ]}
+                name="Plain T-shirt" 
+                price="$7.99"
+                />
+
+            </>
+        );
+       }
+       const container = document.querySelector('.js-container');
+       ReactDOM.createRoot(container).render(<App/>);
+
+    </script>
+
+
+</body>
+</html>

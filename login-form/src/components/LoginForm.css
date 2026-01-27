@@ -1,0 +1,44 @@
+.card {
+  width: 320px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.input-box {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.password-row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+}
+
+.login-btn {
+  background-color: rgb(0, 123, 255);
+  margin-right: 8px;
+}
+
+.signup-btn {
+  background-color: rgb(0, 123, 255);
+}
+
+.toggle-btn {
+  background-color: #ddd;
+  color: black;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User card</title>
+</head>
+<body>
+    <div class="js-container"></div>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+        function UserCard({name, email}) {
+            return (
+                <div>
+                    <p>Name: {name}</p>
+                    <p>Email: {email}</p>
+                </div>
+            );
+        }
+        function Button({text}) {
+            return (
+                <button>{text}</button>
+            );
+        }
+        function StatusMessage({isLoggedIn}) {
+            return (
+                <p>{isLoggedIn ? "Welcome back!": "Please log in"} </p>
+            );
+        }
+        function ProductPrice({price, discountPrice}) {
+            return (
+                <div>
+                    <p>
+                        Price: {discountPrice ? <del>{price}</del>: price} 
+                    </p>
+                        {discountPrice && <p>Discount Price: {discountPrice}
+                    </p>}
+
+                </div>
+            );
+        }
+        const products = [
+            {name: "Socks", price: "$10"},
+            {name: "T-shirt", price: "$15"},
+            {name: "Shoes", price: "$50"},
+
+
+        ];
+        function ProductDetails({name, price}) {
+            return (
+                <p>{name} - {price} </p>
+
+            );
+        }
+        function App() {
+            return (
+                <>
+                  <UserCard name="John" email="john@gmail.com"/>
+                  <UserCard name="Sara" email="sara@gmail.com"/>
+                  <UserCard name="Alex" email="alex@gmail.com"/>
+                  <Button text="Login"/>
+                  <Button text="Logout"/>
+                  <Button text="Register"/>
+                  <StatusMessage isLoggedIn={true}/>
+                  <StatusMessage isLoggedIn={false}/>
+                  {produts.map((product, index) =>(
+                    <ProductDetails 
+                    key={index}
+                    name={product.name}
+                    price={product.price}
+                    />
+
+                  ))}
+
+                </>
+
+            );
+        }
+        const container = document.querySelector('.js-container');
+        ReactDOM.createRoot(container).render(<App />);
+    </script>
+  
+</body>
+</html>
+
+
